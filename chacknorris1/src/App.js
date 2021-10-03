@@ -8,28 +8,28 @@ import Quotes3 from "./components/Quotes3";
 
 
 class App extends React.Component {
- constructor() {
-   super();
+ constructor(props) {
+   console.log(props)
+   super(props);
    this.state = {
      categoryTitle: data.categoryTitle,
-     categoryName : "dev"
+     categoryName : "dev",
+     frase: ""
    }
    
  }
  
-/*  selectCategory = (categoryName) => {
-   console.log("{categoryName}")
- /*  this.setState({
-      categoryName : categoryName
-    }) 
- } */
- removeFromCart = (product) => {
+ 
+ selectCategory = (categoryName) => {
   
   this.setState({
-    categoryName : product
+    categoryName : categoryName
   }) 
 };
-
+frase=(childFrase) => {
+ this.setState({frase:childFrase})
+  console.log(childFrase)
+}
  render() {
   return (
     <div className="grid-container">
@@ -44,7 +44,9 @@ class App extends React.Component {
       
        <div>
        <Category2 removeFromCart={this.removeFromCart}
-       categoryName = {this.state.categoryName} />
+       categoryName = {this.state.categoryName}
+       frase={this.frase}
+       />
        </div>
        <div className="chackimg">
          <img src={hh}  alt="Chack Norries" />
@@ -52,7 +54,9 @@ class App extends React.Component {
        <div className="quotes">
       {/*    <Quotes2 categoryName = {this.state.categoryName} 
          removeFromCart={this.removeFromCart} /> */}
-       <Quotes3 /> 
+       {/*  <Quotes3 categoryName = {this.state.categoryName} />   */}
+       {this.state.frase}
+       
        </div>
 
       </main>

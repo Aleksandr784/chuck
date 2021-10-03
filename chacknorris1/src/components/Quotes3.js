@@ -1,22 +1,32 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
  
-function Quotes3() {
-  const [data, setData] = useState({ hits: [] });
+function Quotes3({categoryName}) {
+    
+  const [data, setData] = useState("");
+  useEffect( () => {
  
-  useEffect(async () => {
-    const result = await axios(
-      'https://api.chucknorris.io/jokes/random?category=dev',
-    );
+      const fetchData= async () => {
+           const result = await axios(
+      `https://api.chucknorris.io/jokes/random?category=dev`,
+    ); 
  
-    setData(result.data);
-  });
- 
+   return result;
+      }
+     const frases = fetchData();
+     frases.then((result)=> {
+         setData(result.data.value)
+     console.log(data)
+     }
+     );
+  
+    
+  }); 
   return (
-       <div>
+     <div>
    
-   {data.hits.value}
-        </div>
+  {data}
+     </div>  
   );
 }
  

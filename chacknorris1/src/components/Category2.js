@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import axios from 'axios';
 
 
 class Category2 extends React.Component {
@@ -8,8 +8,8 @@ class Category2 extends React.Component {
         this.state = {
             error: null,
             isLoaded: false,
-            items: []
-           
+            items: [],
+           frase: ""
         }; 
        /*  this.onClick = this.onClick.bind(this); */
        /*  this.removeFromCart = this.removeFromCart.bind(this); */
@@ -36,6 +36,19 @@ class Category2 extends React.Component {
                 }
             )
     }
+ async fetchFraseByCategory (category)  {
+    const result = await axios(`https://api.chucknorris.io/jokes/random?category=${category}`)
+    console.log (result)
+       this.setState({
+           frase:result.data.value})
+
+
+        return result
+}
+ handleClick (category) {
+      this.fetchFraseByCategory(category).then((frase)=>this.props.frase(frase.data.value))
+    
+}
 
     render() {
         const { error, isLoaded, items } = this.state;
@@ -46,11 +59,10 @@ class Category2 extends React.Component {
         } else {
             return (
                 <ul>
-                    {items.map(item => (
-                        <li>
-                           <button /* onClick={() => this.props.selectCategory(item)} */
-onClick={() => this.props.removeFromCart(item)}
-                           > {item} </button>
+                    {items.map(category => (
+                        <li key={category}>
+                           <button onClick={() => this.handleClick(category)}
+                           > {category} </button>
                         </li>
                     ))}
                 </ul>
