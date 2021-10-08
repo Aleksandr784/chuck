@@ -58,14 +58,14 @@ class Category2 extends React.Component {
             return <div>Завантаження...</div>;
         } else {
             return (
-                <ul>
+                <ul className="category">
                     {items.map(category => (
                         <li key={category}>
                            <button onClick={() => this.handleClick(category)}
                            > {category} </button>
                         </li>
                     ))}
-                </ul>
+               </ul> 
             );
         }
     }

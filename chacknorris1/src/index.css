@@ -1,34 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@600;800&display=swap');
+body,
+button {
+    font-family: 'Raleway', sans-serif;
+}
 
-.grid-container {
-  display: grid;
-  grid-template-areas: "header" "main";
-  grid-template-rows: 59px 1fr;
-  grid-template-columns: 1fr;
-  height: 100%;
+body,
+#root {
+    height: 920px;
+    margin: 0;
 }
 
 header {
-  grid-area: header;
-  background-color: #422ED4;
-  color: #ffffff;
+    display: flex;
+    background-color: #422ED4;
+    color: #ffffff;
+    align-items: center
 }
 
-main {
-  grid-area: main;
-}
 .title {
-  text-align: center;
-  margin-top: 60px;
+    text-align: center;
+    margin-top: 60px;
 }
+
 .chackimg img {
-  height: 258px;
-  width: 122px;
-  
+    height: 258px;
+    width: 122px;
+    z-index: 100;
+    position: relative;
+    margin-top: 12px;
+    float: right;
+    margin-right: 7em;
 }
+
 .quotes {
-  background-color: #422ED4;
-  height: 162px;
-  width: 1120px;
-  text-align: center;
-  
+    background-color: #422ED4;
+    height: 162px;
+    text-align: center;
+    z-index: 200;
+    position: relative;
+    margin-left: 5em;
+    margin-right: 5em;
+    margin-top: 163px;
+    border-radius: 25px;
+    font-weight: 600;
+}
+
+.quotes-content {
+    position: absolute;
+    padding: 1rem;
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 150%;
+    color: #FFFFFF;
+}
+
+button {
+    width: 170px;
+    height: 57px;
+    font-weight: 800;
+    font-size: 16px;
+    background: #FFFFFF;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 0 0 10.02px 0 rgba(80, 76, 103, 0.05), 0 100px 80px 0 rgba(80, 76, 103, 0.1);
+    border: none;
+}
+
+button:hover {
+    border: 2px #422ED4 solid;
+}
+
+button:focus {
+    vertical-align: middle;
+    background: #422ED4;
+    color: #FFFFFF;
+}
+
+.category {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.category li {
+    margin: 20px;
+    padding: 0;
+}
+
+ul {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 0;
+}
+
+header img {
+    margin-left: 138.5px;
+    margin-right: 10px;
+    vertical-align: middle;
 }
