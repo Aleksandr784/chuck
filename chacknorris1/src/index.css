@@ -18,8 +18,13 @@ header {
 }
 
 .title {
-    text-align: center;
     margin-top: 60px;
+    text-align: center;
+    font-size: 50px;
+    align-items: center;
+    vertical-align: top;
+    color: #1C1C39;
+    font-weight: 800;
 }
 
 .chackimg img {
